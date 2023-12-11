@@ -1,0 +1,38 @@
+/* Reset de Estilos Padrão */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300; /* Light (300) para o corpo de texto */
+    color: #c6bebe; /* Cor do texto */
+    background-color: #1c1717; /* Cor de fundo do corpo */
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #372f2f; /* Cor de fundo do cabeçalho */
+}
+
+h1 {
+    font-weight: 700; /* Bold (700) para o título */
+    color: #e5e1e1; /* Cor do título */
+}
+
+h2 {
+    font-weight: 600; /* SemiBold (600) para o subtítulo */
+    color: #e5e1e1; /* Cor do subtítulo */
+}
+
+p {
+    line-height: 1.5;
+}
+
+/* Estilos para Destacar Texto */
+.destaque {
+    font-weight: 500; /* Medium (500) para o destaque em texto */
+    color: #e5e1e1; /* Cor do destaque */
+}

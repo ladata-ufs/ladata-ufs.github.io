@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
+</head>
+<body>
+
+    <!-- Menu de Navegação -->
+    <nav>
+        <ul>
+            {% for item in site.data.menu %}
+                <li><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+
+    <!-- Conteúdo da Página -->
+    {{ content }}
+
+    <!-- Rodapé -->
+    <footer>
+        <p class="destaque">&copy; 2023 Liga Acadêmica de Ciência de Dados. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+# _data/menu.yml
+
+- title: Página Inicial
+  url: /
+
+- title: Novidades
+  url: /novidades
+
+- title: Projetos
+  url: /projetos
+
+- title: Contato
+  url: /contato
+
+- title: Sobre
+  url: /sobre

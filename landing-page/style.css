@@ -1,0 +1,213 @@
+/* Redefinição de unidades para REM */
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  background-color: #f7f6f6;
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+}
+
+nav {
+  display: flex;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 1rem 1.5rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+  font-size: 1.6rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+nav a:hover {
+  background-color: #f7f6f6;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.button {
+  background-color: #bab9b9;
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  margin-top: 2rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+  font-size: 1.6rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.button:hover {
+  background-color: #f7f6f6;
+}
+
+.section {
+  flex: 1 0 auto;
+  padding: 2rem;
+  background-color: #f7f6f6;
+  width: 100%;
+}
+
+.logo{
+  height: 50px;
+  margin-left: 2rem;
+}
+
+.hero {
+  background-image: url("images/ada-background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero .content {
+  text-align: center;
+  color: #fff;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 0.5rem;
+}
+
+.project img {
+  width: 30%;
+}
+
+.project h3 {
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.section .form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.section .form input,
+.section .form textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.section .form textarea {
+  height: 10rem;
+}
+
+.section .form button {
+  background-color: #bab9b9
+}
+
+
+#contato {
+  background-color: #f7f6f6;
+  padding-bottom: 5rem;
+}
+
+#contato h2 {
+  margin-top: 0;
+}
+
+#contato p {
+  margin-bottom: 2rem;
+}
+
+#contato .form-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+#contato .form-group input,
+#contato .form-group textarea {
+  width: 50%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#contato .form-group textarea {
+  height: 10rem;
+}
+
+#contato button {
+  background-color: #bab9b9;
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  margin-top: 2rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+  font-size: 1.6rem;
+  font-family: 'Work Sans', sans-serif;
+  width: 10%;
+}
+
+#contato button:hover {
+  background-color: #f7f6f6;
+}

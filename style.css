@@ -25,12 +25,10 @@ header {
   padding: 1rem 0;
   background-color: #f7f6f6;
   width: 100%;
-  z-index: 1;
   position: fixed;
 }
 
 nav {
-  display: flex;
   margin-right: 3rem;
 }
 
@@ -161,7 +159,7 @@ p {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   border-radius: 0.5rem;
   width: 80%;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .project h3 {
@@ -191,7 +189,6 @@ footer p {
 }
 
 .redes-sociais img {
-  width: 2rem;
   height: 2rem;
   transition: 0.3s;
 }

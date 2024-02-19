@@ -73,7 +73,7 @@ p {
   font-weight: bold;
   color: #333;
   text-decoration: none;
-  margin: 4rem;
+  margin-top: 4rem;
   cursor: pointer;
   border-radius: 0.5rem;
   transition: 0.3s;
@@ -169,7 +169,6 @@ p {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
 }
-
 footer {
   background-color: #f7f6f6;
   padding: 1rem 0;
@@ -192,7 +191,8 @@ footer p {
 }
 
 .redes-sociais img {
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   transition: 0.3s;
 }
 

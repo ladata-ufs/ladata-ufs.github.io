@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LADATA</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="../Styles/globals.css">
+    <link rel="stylesheet" href="../Styles/navStyle.css">
+    <link rel="stylesheet" href="../Styles/homeStyle.css">
+    <link rel="stylesheet" href="../Styles/footerStyle.css">
+    <link rel="stylesheet" href="../Styles/projectsStyle.css">
+    <link rel="stylesheet" href="../Styles/eventsStyle.css">
+    <link rel="stylesheet" href="../Styles/socialStyle.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-md" aria-label="Navegação principal">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" aria-label="Página inicial">
+                    <img src="../Assets/LOGO-EXTENSO-CLARA.png" alt="LADATA - Liga Acadêmica de Ciência de Dados" style="width: 200px;">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navcol-5" 
+                        aria-controls="navcol-5" aria-expanded="false" aria-label="Alternar navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div id="navcol-5" class="collapse navbar-collapse justify-content-end">
+                    <img src="../Assets/polvo_ascii 1.png" alt="" aria-hidden="true" id="polvo">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#eventos">Eventos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#redes-sociais">Redes Sociais</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="home" id="home">
+            <div class="home-container">
+
+                <div id="carouselExampleCaptions" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../Assets/teste_carrossel.png" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Título Teste 1</h5>
+                                <p>LADATA é a maior Liga Academica do Brasil, pode acreditar em mim.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../Assets/teste_carrossel.png" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Título Teste 2</h5>
+                                <p>LADATA é a maior Liga Academica do Brasil, pode acreditar em mim.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../Assets/teste_carrossel.png" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Título Teste 3</h5>
+                                <p>LADATA é a maior Liga Academica do Brasil, pode acreditar em mim.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                <div class="title-container">
+                        <h1 id="home-title">
+                            <span class="light">ACompanhe de Perto</span>
+                            <span class="bold">Nossas Últimas Atualizações</span>
+                        </h1>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects">
+            <div class="projects-container">
+                <div class="projects-text">
+                    <h1 id="projects-text-title">
+                        <span class="light">Conheça</span>
+                        <span class="bold">Nossos Projetos</span>
+                    </h1>
+                    <p id="projects-text-paragraf">No nosso perfil do <a href="https://github.com/ladata-ufs"
+                            class="github-link" target="_blank" rel="noopener noreferrer">GitHub</a> estão alguns dos
+                        projetos desenvolvidos pela LADATA — frutos de muito café, troca de ideias e aprendizado
+                        coletivo. São iniciativas que colocam em prática as teorias e técnicas de Ciência de Dados que
+                        estudamos e aplicamos no dia a dia.<br><br>Você vai encontrar desde análises exploratórias de
+                        bases públicas até projetos de web scraping e muito mais. Tudo feito de forma colaborativa entre
+                        os Integrantes da LADATA e com o objetivo de aprender e auxiliar na construção de uma carreira
+                        acadêmica e profissional.<br><br>Acreditamos que compartilhar conhecimento é parte essencial do
+                        processo de aprendizado — e quem sabe você não se anima e contribui também?</p>
+                </div>
+                <div class="projects-media">
+                    <div class="projects-media-title">
+                        <img src="../Assets/dice-svgrepo-com.svg" alt="dice-image">
+                        <span class="bold">TECNOLOGIAS</span>
+                        <span class="light">UTILIZADAS</span>
+
+                    </div>
+                    <button class="carousel-arrow prev" aria-label="Previous">&#60;</button>
+                    <div class="carousel-container">
+                        <div class="carousel-track">
+
+                        </div>
+                    </div>
+                    <button class="carousel-arrow next" aria-label="Next">&#62;</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="events" style="background-color: #C6BEBE;">
+            <div class="polvos">
+                <img id="events-polvo1" src="../assets/polvos-image.svg" alt="polvo-ascii">
+            </div>
+            <div class="events-container">
+                <div class="treasure-map">
+                    <span class="profile-acess">Acesse nosso:</span>
+                    <div class="map-title">
+                        <span class="text-title">Linked</span><svg fill="#c6bebe" viewBox="0 0 32 32" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" stroke="#c6bebe">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <title>linkedin</title>
+                                <path
+                                    d="M28.778 1.004h-25.56c-0.008-0-0.017-0-0.027-0-1.199 0-2.172 0.964-2.186 2.159v25.672c0.014 1.196 0.987 2.161 2.186 2.161 0.010 0 0.019-0 0.029-0h25.555c0.008 0 0.018 0 0.028 0 1.2 0 2.175-0.963 2.194-2.159l0-0.002v-25.67c-0.019-1.197-0.994-2.161-2.195-2.161-0.010 0-0.019 0-0.029 0h0.001zM9.9 26.562h-4.454v-14.311h4.454zM7.674 10.293c-1.425 0-2.579-1.155-2.579-2.579s1.155-2.579 2.579-2.579c1.424 0 2.579 1.154 2.579 2.578v0c0 0.001 0 0.002 0 0.004 0 1.423-1.154 2.577-2.577 2.577-0.001 0-0.002 0-0.003 0h0zM26.556 26.562h-4.441v-6.959c0-1.66-0.034-3.795-2.314-3.795-2.316 0-2.669 1.806-2.669 3.673v7.082h-4.441v-14.311h4.266v1.951h0.058c0.828-1.395 2.326-2.315 4.039-2.315 0.061 0 0.121 0.001 0.181 0.003l-0.009-0c4.5 0 5.332 2.962 5.332 6.817v7.855z">
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                    <img id="dice-map" src="../assets/map-dado.svg" alt="mapa dado">
+                </div>
+                <div class="events-text">
+                <h1 id="events-text-title">
+                    <span class="light">Fique por Dentro</span>
+                    <span class="bold">dos Nossos Eventos</span>
+                </h1>
+                <p id="events-text-paragraf">A <b>LADATA</b> — Liga Acadêmica de Ciência de Dados — tem marcado presença
+                    em diversos eventos dentro e fora da <b>Universidade Federal de Sergipe</b> — Campus São Cristóvão.
+                    Ao longo da nossa trajetória, promovemos e participamos de oficinas, minicursos, semanas acadêmicas
+                    e encontros interdisciplinares, sempre com o objetivo de fomentar o conhecimento e a troca de
+                    experiências no campo da <b>Ciência de Dados</b>.<br><br>
+                    Além dos projetos, em nosso perfil do LinkedIn, você pode acompanhar todas as atualizações sobre os
+                    nossos eventos. Lá, compartilhamos <b>registros</b> e <b>bastidores</b> de eventos que organizamos
+                    ou apoiamos, mostrando de perto como a LADATA contribui para o Desenvolvimento Acadêmico e
+                    Científico dentro e fora da Academia.<br><br>
+                    Nos acompanhe também em nossas <b>Redes Sociais</b> e fique por dentro dos nossos próximos eventos!
+                </div>
+            </div>
+            <button class="social-media"><a href="#social">REDES SOCIAIS &DownArrow;</a></button>
+        </section>
+
+        <section class="social" id="social">
+                <div class="social-head-container">
+                    <img id="left-star" src="../assets/brilhos.png" alt="brilho-img">
+                    <div class="social-text">
+                        <h1 id="social-title">
+                            <span class="light">Siga-nos em Nossas</span>
+                            <span class="bold">Redes Sociais</span>
+                        </h1>
+                        <p id="social-paragraf">e nos acompanhe nessa jornada para difundir e aplicar <br>os conhecimentos relacionados à <b>Ciência de Dados</b> </p>
+                    </div>
+                    <img id="right-star" src="../assets/brilhos.png" alt="brilho-img">
+                </div>
+
+            </div>
+            <hr>
+            <div class="profile-cards">
+                <div class="instagram-card">
+                    <img src="https://img.icons8.com/?size=200&id=32320&format=png&color=372f2f" alt="instagram-logo">
+                    <span class="instagram-text">Instagram</span>
+                </div>
+                <div class="linkedin-card">
+                    <img src="https://img.icons8.com/?size=100&id=8808&format=png&color=372f2f" alt="linkedin-logo">
+                    <span class="linkedin-text">LinkedIn</span>
+                </div>
+                <div class="github-card">
+                    <img src="https://img.icons8.com/?size=100&id=12599&format=png&color=372f2f" alt="github-logo">
+                    <span class="github-text">GitHub</span>
+                </div>
+                <div class="kaggle-card">
+                    <img src="https://img.icons8.com/?size=100&id=1iP83OYM1FL-&format=png&color=372f2f" alt="kaggle-logo">
+                    <span class="kaggle-text">Kaggle</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="copyright">
+            ©
+            <span id="ano" style="padding-left: 5px;padding-right: 5px">2025</span>
+            LADATA - Liga Academica de Ciencia de Dados. Todos os direitos reservados.
+        </p>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
+        </script>
+    <script src="../Scripts/carrousel.js"></script>
+</body>
+
+</html>

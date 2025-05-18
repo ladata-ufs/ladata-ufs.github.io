@@ -1,0 +1,10 @@
+footer{
+    background-color: #e5e1e1;
+    padding:20px;
+}
+
+.copyright{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

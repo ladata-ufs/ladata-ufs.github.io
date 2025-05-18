@@ -90,7 +90,21 @@
     width: 80%;
     position: relative;
     perspective: 1000px;
-
+    /* Adicionando máscara de gradiente nas bordas */
+    mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
 }
 
 .carousel-track {
@@ -121,7 +135,9 @@
 }
 
 .tech-card h3{
+    width: 50%;
     font-weight: var(--font-light);
+    text-align: center;
 }
 
 .tech-icon {
@@ -163,11 +179,11 @@
 }
 
 .prev {
-    left: 5px;
+    left: 10px;
 }
 
 .next {
-    right: 5px;
+    right: 10px;
 }
 
 .github-link {

@@ -1,10 +1,15 @@
-footer{
-    background-color: #e5e1e1;
-    padding:20px;
+.custom-footer{
+    background-color: var(--secondary-dark);
 }
 
-.copyright{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.row p{
+    text-align: justify;
+}
+
+#logos img{
+    max-width: 200px;
+}
+
+#biruta-img{
+    max-width: 200px;
 }

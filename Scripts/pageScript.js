@@ -5,11 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     const cardData = [
-        { img: '../Assets/python-logo-only.svg', title: 'Python' },
-        { img: '../Assets/pandas_mark.svg', title: 'Pandas' },
-        { img: '../Assets/selenium-svgrepo-com.svg', title: 'Selenium' },
-        { img: '../Assets/Matplotlib_icon.svg', title: 'Matplotlib' },
-        { img: '../Assets/logo-mark-lightbg.svg', title: 'SeaBorn' },
+        { img: '../Assets/science-divulgation.svg', title: 'Jornalismo de dados' },
+        { img: '../Assets/newspaper-icon.svg', title: 'Divulgação científica' },
+
     ];
     
 
@@ -90,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCarousel();
 });
 
-// Efeito de scroll
+
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
     if (window.scrollY > 50) {
@@ -100,7 +98,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Fechar menu ao clicar em um item (mobile)
+
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function() {
         const navbarCollapse = document.querySelector('.navbar-collapse');

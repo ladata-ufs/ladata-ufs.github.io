@@ -57,13 +57,14 @@
     height: auto;
 }
 
+
+
 #carouselExampleCaptions {
     width: 80%;
     height: 60vh;
     margin-top: 6vh;
-    overflow: hidden;
     position: relative; 
-    border-radius: 10px;
+    touch-action: pan-y pinch-zoom;
 }
 
 .carousel-inner {
@@ -80,6 +81,19 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 20px;
+}
+
+.custom-img1{
+    object-position: center 80%;
+}
+
+.custom-img2{
+    object-position: center 5%;
+}
+
+.custom-img3{
+    object-position: center 20%;
 }
 
 .carousel-caption {
@@ -90,18 +104,6 @@
     text-align: center;
     background-color: rgba(0, 0, 0, 0.3);
     padding: 1rem;
-}
-
-.carousel-control-prev-icon{
-    background-image: url("../Assets/chevron-left.svg");
-    background-color: rgba(217, 217, 217, 0.80);
-    border-radius: 50%;
-}
-.carousel-control-next-icon{
-    background-image: url("../Assets/chevron-left.svg");
-    background-color: rgba(217, 217, 217, 0.80);
-    border-radius: 50%;
-    transform: scaleX(-1);
 }
 
 

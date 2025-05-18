@@ -1,6 +1,6 @@
 .social{
     margin-bottom: 50px;
-    padding: 80px 0;
+    padding: 40px 0px 80px 0px;
     position: relative;
     overflow: hidden;
 }
@@ -16,6 +16,10 @@
     padding: 0 20px; 
     box-sizing: border-box; 
     margin-top: 80px; 
+}
+
+.profile-cards a{
+    text-decoration: none;
 }
 
 hr{

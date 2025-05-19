@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ];
     
-
     function createCards() {
 
         cardData.slice(-2).forEach(data => {
@@ -88,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCarousel();
 });
 
-
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
     if (window.scrollY > 50) {
@@ -97,7 +95,6 @@ window.addEventListener('scroll', function() {
         header.classList.remove('scrolled');
     }
 });
-
 
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function() {

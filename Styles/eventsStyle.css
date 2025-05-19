@@ -63,12 +63,10 @@
     width: 50%;
 }
 
-/* ELEMENTOS ORIGINAIS */
 .map-title {
     display: inline-flex;
     align-items: center;
     background-color: var(--secondary-dark);
-    color: white;
     padding: 10px 25px;
     border-radius: 50px;
     font-size: 1.8rem;
@@ -76,6 +74,7 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     cursor: pointer;
+    
 }
 
 
@@ -89,6 +88,13 @@
     width: 32px;
     height: 32px;
     margin-left: 10px;
+}
+
+.map-title a{
+    display: flex;
+    align-items: center;
+    color: var(--secondary-light);
+    text-decoration: none;
 }
 
 #events-text-title {

@@ -3,11 +3,6 @@
     background-color: #e5e1e1;
 }
 
-#teste, #teste h1{
-    background-color: #e5e1e1;
-    margin: 0;
-}
-
 .home-container{
     display: flex;
     flex-direction: column;
@@ -102,13 +97,21 @@
     transform: translateX(-50%);
     width: 100%;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: #e5e1e1dd;
     padding: 1rem;
+    color: var(--secondary-dark);
 }
 
 
 @media (max-width: 480px) {
     #home-title {
         font-size: 1.5rem;
+    }
+    .carousel-caption h5{
+    font-size: 1em;
+    }
+
+    .carousel-caption p{
+        font-size: 0.6em;
     }
 }

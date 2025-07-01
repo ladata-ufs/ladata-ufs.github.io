@@ -1,0 +1,15 @@
+.custom-footer{
+    background-color: var(--secondary-dark);
+}
+
+.row p{
+    text-align: justify;
+}
+
+#logos img{
+    max-width: 200px;
+}
+
+#biruta-img{
+    max-width: 200px;
+}

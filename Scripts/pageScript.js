@@ -107,3 +107,79 @@ document.querySelectorAll('.nav-link').forEach(link => {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const popupOverlay = document.querySelector('.popup-overlay');
+    const closeButton = document.querySelector('.close-button');
+    
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    const countdownContainer = document.getElementById('countdown');
+
+    const targetDate = new Date('2025-07-04T23:59:00').getTime();
+
+    function startCountdown() {
+        const interval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                clearInterval(interval);
+                if (countdownContainer) {
+                    countdownContainer.innerHTML = "<p>Inscrições encerradas!</p>";
+                }
+                const subscribeBtn = document.getElementById('subscribe-button');
+                if (subscribeBtn) {
+                    subscribeBtn.disabled = true;
+                    subscribeBtn.textContent = "Prazo Finalizado";
+                }
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const format = (num) => String(num).padStart(2, '0');
+
+            if (daysEl) daysEl.textContent = format(days);
+            if (hoursEl) hoursEl.textContent = format(hours);
+            if (minutesEl) minutesEl.textContent = format(minutes);
+            if (secondsEl) secondsEl.textContent = format(seconds);
+            
+        }, 1000);
+    }
+
+    const closePopup = () => {
+        if (popupOverlay) {
+            popupOverlay.classList.add('hidden');
+        }
+    };
+
+    function setupEventListeners() {
+        if (!popupOverlay) return;
+
+        if (closeButton) {
+            closeButton.addEventListener('click', closePopup);
+        }
+
+        popupOverlay.addEventListener('click', (e) => {
+            if (e.target === popupOverlay) {
+                closePopup();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !popupOverlay.classList.contains('hidden')) {
+                closePopup();
+            }
+        });
+    }
+
+    startCountdown();
+    setupEventListeners();
+});

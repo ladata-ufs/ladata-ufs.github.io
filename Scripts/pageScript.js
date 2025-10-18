@@ -1,32 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.querySelector('.carousel-track');
+    const container = document.querySelector('.carousel-container');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
-    
 
+    // Data for the cards
     const cardData = [
-        { img: '../Assets/science-divulgation.svg', title: 'Jornalismo de dados' },
-        { img: '../Assets/newspaper-icon.svg', title: 'Divulgação científica' },
-
+        { img: '/Assets/science-divulgation.svg', title: 'Jornalismo de dados' },
+        { img: '/Assets/newspaper-icon.svg', title: 'Divulgação científica' },
+        // Adicione mais itens aqui quando necessário
     ];
-    
-    function createCards() {
 
-        cardData.slice(-2).forEach(data => {
-            track.appendChild(createCardElement(data));
-        });
-        
+    // State
+    let itemsPerView = 1;
+    let clonesCount = 1; // equals itemsPerView but capped by data length
+    let cards = [];
+    let cardCount = 0; // total including clones
+    let currentIndex = 0; // will start at clonesCount
+    let cardWidth = 0;
+    let isAnimating = false;
+    let resizeTimer = null;
 
-        cardData.forEach(data => {
-            track.appendChild(createCardElement(data));
-        });
-        
-
-        cardData.slice(0, 2).forEach(data => {
-            track.appendChild(createCardElement(data));
-        });
-    }
-    
     function createCardElement(data) {
         const card = document.createElement('div');
         card.className = 'tech-card';
@@ -36,55 +30,125 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         return card;
     }
-    
-    createCards();
-    
-    const cards = document.querySelectorAll('.tech-card');
-    const cardCount = cards.length;
-    const cardWidth = cards[0].offsetWidth + 60;
-    let currentIndex = 2; 
-    let isAnimating = false;
-    
-    function updateCarousel(direction) {
-        if (isAnimating) return;
-        isAnimating = true;
-        
-        cards.forEach((card, index) => {
-            card.classList.toggle('active', index === currentIndex);
-        });
-        
-        const offset = -currentIndex * cardWidth + (track.offsetWidth / 2 - cardWidth / 2);
-        track.style.transition = 'transform 0.5s ease';
-        track.style.transform = `translateX(${offset}px)`;
-        
-        setTimeout(() => {
-            isAnimating = false;
-            
 
-            if (direction === 'next' && currentIndex >= cardCount - 2) {
-                currentIndex = 2;
-                track.style.transition = 'none';
-                track.style.transform = `translateX(${-currentIndex * cardWidth + (track.offsetWidth / 2 - cardWidth / 2)}px`;
-            } 
-            else if (direction === 'prev' && currentIndex <= 1) {
-                currentIndex = cardCount - 3;
-                track.style.transition = 'none';
-                track.style.transform = `translateX(${-currentIndex * cardWidth + (track.offsetWidth / 2 - cardWidth / 2)}px`;
-            }
+    function getItemsPerView() {
+        const w = window.innerWidth;
+        if (w <= 480) return 1;
+        if (w <= 1024) return 2;
+        return 3;
+    }
+
+    function computeCardWidth() {
+        const first = track.querySelector('.tech-card');
+        if (!first) return 0;
+        const styles = window.getComputedStyle(first);
+        const marginLeft = parseFloat(styles.marginLeft) || 0;
+        const marginRight = parseFloat(styles.marginRight) || 0;
+        return first.offsetWidth + marginLeft + marginRight;
+    }
+
+    function clearTrack() {
+        while (track.firstChild) track.removeChild(track.firstChild);
+    }
+
+    function buildCarousel() {
+        clearTrack();
+
+        const dataLen = cardData.length;
+        if (dataLen === 0) return;
+
+        itemsPerView = Math.min(getItemsPerView(), dataLen);
+        clonesCount = itemsPerView;
+
+        const leading = cardData.slice(-clonesCount);
+        leading.forEach(d => track.appendChild(createCardElement(d)));
+
+        cardData.forEach(d => track.appendChild(createCardElement(d)));
+
+        const trailing = cardData.slice(0, clonesCount);
+        trailing.forEach(d => track.appendChild(createCardElement(d)));
+
+        cards = Array.from(track.querySelectorAll('.tech-card'));
+        cardCount = cards.length;
+
+        cardWidth = computeCardWidth();
+
+        currentIndex = clonesCount;
+        setActiveClasses();
+        positionCarousel(false);
+    }
+
+    function setActiveClasses() {
+        if (!cards || cards.length === 0) return;
+        cards.forEach((card, index) => {
+            const start = currentIndex;
+            const end = currentIndex + itemsPerView - 1;
+            card.classList.toggle('active', index >= start && index <= end);
+        });
+    }
+
+    function getCenteredOffset() {
+        const containerWidth = container ? container.clientWidth : track.offsetWidth;
+        const visibleWidth = itemsPerView * cardWidth;
+        const leftGutter = (containerWidth - visibleWidth) / 2;
+        return -currentIndex * cardWidth + leftGutter;
+    }
+
+    function positionCarousel(animate = true) {
+        const offset = getCenteredOffset();
+        track.style.transition = animate ? 'transform 0.5s ease' : 'none';
+        track.style.transform = `translateX(${offset}px)`;
+    }
+
+    function snapIfAtEdges(direction) {
+        const originalsLen = cardData.length;
+        const firstReal = clonesCount;
+        const lastReal = clonesCount + originalsLen - 1;
+
+        if (direction === 'next' && currentIndex > lastReal) {
+            currentIndex = firstReal;
+            positionCarousel(false);
+        }
+
+        if (direction === 'prev' && currentIndex < firstReal) {
+            currentIndex = lastReal;
+            positionCarousel(false);
+        }
+    }
+
+    function navigate(direction) {
+        if (isAnimating || cardCount === 0) return;
+        isAnimating = true;
+
+        currentIndex += direction === 'next' ? 1 : -1;
+        setActiveClasses();
+        positionCarousel(true);
+
+        setTimeout(() => {
+            snapIfAtEdges(direction);
+            isAnimating = false;
         }, 500);
     }
-    
-    function handleNavigation(direction) {
-        currentIndex += direction === 'next' ? 1 : -1;
-        updateCarousel(direction);
-    }
-    
-    nextBtn.addEventListener('click', () => handleNavigation('next'));
-    prevBtn.addEventListener('click', () => handleNavigation('prev'));
-    
 
-    cards[currentIndex].classList.add('active');
-    updateCarousel();
+    buildCarousel();
+
+    if (nextBtn) nextBtn.addEventListener('click', () => navigate('next'));
+    if (prevBtn) prevBtn.addEventListener('click', () => navigate('prev'));
+
+    window.addEventListener('resize', () => {
+        if (resizeTimer) clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const prevItemsPerView = itemsPerView;
+            const prevCenteredItem = (currentIndex - clonesCount); // index in originals
+            buildCarousel();
+
+            if (!isNaN(prevCenteredItem) && prevCenteredItem >= 0) {
+                currentIndex = Math.min(clonesCount + prevCenteredItem, cardCount - clonesCount - 1);
+                setActiveClasses();
+                positionCarousel(false);
+            }
+        }, 150);
+    });
 });
 
 window.addEventListener('scroll', function() {
@@ -106,80 +170,4 @@ document.querySelectorAll('.nav-link').forEach(link => {
             bsCollapse.hide();
         }
     });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const popupOverlay = document.querySelector('.popup-overlay');
-    const closeButton = document.querySelector('.close-button');
-    
-    const daysEl = document.getElementById('days');
-    const hoursEl = document.getElementById('hours');
-    const minutesEl = document.getElementById('minutes');
-    const secondsEl = document.getElementById('seconds');
-    const countdownContainer = document.getElementById('countdown');
-
-    const targetDate = new Date('2025-07-04T23:59:00').getTime();
-
-    function startCountdown() {
-        const interval = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance < 0) {
-                clearInterval(interval);
-                if (countdownContainer) {
-                    countdownContainer.innerHTML = "<p>Inscrições encerradas!</p>";
-                }
-                const subscribeBtn = document.getElementById('subscribe-button');
-                if (subscribeBtn) {
-                    subscribeBtn.disabled = true;
-                    subscribeBtn.textContent = "Prazo Finalizado";
-                }
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            const format = (num) => String(num).padStart(2, '0');
-
-            if (daysEl) daysEl.textContent = format(days);
-            if (hoursEl) hoursEl.textContent = format(hours);
-            if (minutesEl) minutesEl.textContent = format(minutes);
-            if (secondsEl) secondsEl.textContent = format(seconds);
-            
-        }, 1000);
-    }
-
-    const closePopup = () => {
-        if (popupOverlay) {
-            popupOverlay.classList.add('hidden');
-        }
-    };
-
-    function setupEventListeners() {
-        if (!popupOverlay) return;
-
-        if (closeButton) {
-            closeButton.addEventListener('click', closePopup);
-        }
-
-        popupOverlay.addEventListener('click', (e) => {
-            if (e.target === popupOverlay) {
-                closePopup();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !popupOverlay.classList.contains('hidden')) {
-                closePopup();
-            }
-        });
-    }
-
-    startCountdown();
-    setupEventListeners();
 });

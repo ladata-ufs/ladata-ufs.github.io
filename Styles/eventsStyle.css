@@ -67,7 +67,7 @@
     display: flex;
     justify-content: center;
     background-color: var(--secondary-dark);
-    padding: 10px 25px;
+    padding: 10px 100px;
     border-radius: 50px;
     font-size: 1.8rem;
     font-weight: bold;
@@ -91,6 +91,7 @@
 .map-title a{
     display: flex;
     justify-content: center;
+    align-items: center;
     color: var(--secondary-light);
     text-decoration: none;
 }

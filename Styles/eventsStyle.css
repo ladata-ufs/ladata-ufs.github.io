@@ -64,8 +64,9 @@
 }
 
 .map-title {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     background-color: var(--secondary-dark);
     padding: 10px 25px;
     border-radius: 50px;
@@ -74,15 +75,13 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     cursor: pointer;
-    
+    width: 25%;
 }
-
 
 .map-title:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0,0,0,0.3);
 }
-
 
 .map-title svg {
     width: 32px;
